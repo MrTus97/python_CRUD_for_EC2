@@ -1,0 +1,36 @@
+{% extends 'master_page.html' %} {% block container %}
+<!-- Begin vung hien thi danh sach user -->
+<button onclick="window.location = '/create-user'">Add</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">
+                User Name
+            </th>
+            <th scope="col">
+                Email
+            </th>
+            <th scope="col">
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>
+                {{ user.user_name }}
+            </td>
+            <td>
+                {{ user.email }}
+            </td>
+            <td>
+                <a href="/update-user/{{ user.id }}"><button type="button" class="btn btn-info">Update</button></a> |
+                <a href="/delete-user/{{ user.id }}"><button type="button" class="btn btn-danger">Delete</button></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<!-- End vung hien thi danh sach user -->
+{% endblock %}

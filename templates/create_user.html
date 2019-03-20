@@ -1,0 +1,7 @@
+{% extends 'master_page.html' %} {% block container %}
+<form action={% if user %} "/update-user/{{user.id}}" {% else %} "/create-user" {% endif %} method="POST">
+
+    <input type="hidden" name="id" {% if user %} value="{{user.id}}" {% endif %}><br> username <input type="text" name="username" value="{{user.user_name}}"><br> email <input type="text" name="email" value="{{user.email}}"><br>
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}
